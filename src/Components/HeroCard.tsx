@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar } from './Navbar';
-import { StackedCards } from './StackedCards';
-import { Metrics } from './Metrics';
+import { StackedCards } from './ui/StackedCards';
+import { Metrics } from './ui/Metrics';
 import type { GraphologyModule } from '../Hooks/useGraphologyModules';
 
 interface HeroCardProps {
@@ -10,8 +10,9 @@ interface HeroCardProps {
   onNext: () => void;
 }
 
+
 export const HeroCard: React.FC<HeroCardProps> = ({ modules, activeTab, onNext }) => {
-  const bgImageUrl: string = "/grafologi.png";
+  const bgImageUrl: string = "/grafologi.webp";
 
   return (
     

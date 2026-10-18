@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
 
         {/* Desktop Nav Links (Hanya muncul di Layar Medium/Besar) */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-medium text-slate-400">
-          <a href="#kursus" className="hover:text-white transition-colors">Program</a>
+          <a href="#program" className="hover:text-white transition-colors">Program</a>
           <a href="#kurikulum" className="hover:text-white transition-colors">Kurikulum</a>
           <a href="#sertifikasi" className="hover:text-white transition-colors">Sertifikasi</a>
           <a href="#faq" className="hover:text-white transition-colors">FAQ</a>

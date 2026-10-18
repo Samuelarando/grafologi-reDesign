@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GraphologyModule } from '../Hooks/useGraphologyModules';
+import type { GraphologyModule } from '../../Hooks/useGraphologyModules';
 
 interface StackedCardsProps {
   modules: GraphologyModule[];
@@ -9,7 +9,7 @@ interface StackedCardsProps {
 
 export const StackedCards: React.FC<StackedCardsProps> = ({ modules, activeTab, onNext }) => {
   return (
-    /* LEBAR CONTAINER: Disesuaikan halus ke 'max-w-2xl' (672px) */
+
     <div 
       onClick={onNext}
       className="relative w-full max-w-2xl mx-auto pt-10 cursor-pointer group select-none"
@@ -32,11 +32,7 @@ export const StackedCards: React.FC<StackedCardsProps> = ({ modules, activeTab, 
                 zIndex: zIndex,
                 opacity: opacity,
               }}
-              /* PADDING & KETINGGIAN KARTU DITURUNKAN SEDIKIT:
-                 - Lebar: 'w-[95%] sm:w-[90%]'
-                 - Padding: 'p-7 sm:p-8' (sebelumnya p-10)
-                 - Min-height: 'min-h-[230px]' (sebelumnya 250px)
-              */
+             
               className={`
                 ${offset === 0 ? 'relative' : 'absolute top-0'}
                 w-[95%] sm:w-[90%] p-7 sm:p-8 min-h-[230px] rounded-2xl sm:rounded-3xl shadow-2xl 
