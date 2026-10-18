@@ -1,41 +1,21 @@
 import React from 'react';
-import { useGraphologyModules } from './Hooks/useGraphologyModules';
-import { HeroCard } from './Components/HeroCard';
-import {ProgramSection} from './Components/Program';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Pages from './pages/LandingPage';
+import { ModuleDetailPage } from './pages/ModuleDetailPage';
 
 const App: React.FC = () => {
-  const { modules, activeTab, nextModule } = useGraphologyModules();
-
-  
-
   return (
-    <main className="relative h-200 w-full">
-  
-      {/* HEERO SECTION. START */}
-      <div 
-        className="absolute w-full inset-0 bg-cover bg-center bg-no-repeat brightness-[0.25] contrast-125 filter"
-        
-      />
+    <Router>
+      <div className="min-h-screen bg-slate-50 text-slate-900 font-sans antialiased selection:bg-lime-500 selection:text-slate-950">
+        <Routes>
+          {/* Halaman Utama / Landing Page */}
+          <Route path="/" element={<Pages />} />
 
-      {/* Overlay Vignette */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
-        
-      />
-
-      {/* Hero Container Full Width */}
-      <div className="relative z-10 w-full">
-        <HeroCard 
-          modules={modules} 
-          activeTab={activeTab} 
-          onNext={nextModule} 
-        />
+          
+          <Route path="/modul/:id" element={<ModuleDetailPage />} />
+        </Routes>
       </div>
-      {/* HEERO SECTION. END */}
-
-
-      <ProgramSection />
-    </main>
+    </Router>
   );
 };
 

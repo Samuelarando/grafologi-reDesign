@@ -1,7 +1,15 @@
 import React from 'react';
 import { programModules } from '../Components/data/ProgramData';
+import { useNavigate } from 'react-router-dom';
 
 export const ProgramSection: React.FC = () => {
+
+  const navigate = useNavigate();
+
+  const handleNavigate = (id: string) => {
+    navigate(`/modul/${id}`);
+  };
+
   return (
     <section id="program" className="w-full bg-transparent text-slate-900 py-70 pb-28 px-4 sm:px-8 lg:px-16 border-b border-black/10">
       <div className="max-w-7xl mx-auto space-y-24 sm:space-y-32">
@@ -30,56 +38,56 @@ export const ProgramSection: React.FC = () => {
                 className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 sm:gap-16`}
               >
                 
-                {/* Sisi Gambar (50% Lebar) */}
-                <div className="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-xl border border-black/10 bg-white/50">
+                {/* Sisi Gambar (Lebih Besar: 58% Lebar) */}
+                <div className="w-full md:w-[58%] overflow-hidden rounded-3xl shadow-2xl border border-black/10 bg-white/50 group">
                   <img 
                     src={item.imageSide} 
                     alt={item.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-[300px] sm:h-[380px] object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-[360px] sm:h-[460px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                     }}
                   />
                 </div>
 
-                {/* Sisi Teks (50% Lebar) */}
-                <div className="w-full md:w-1/2 space-y-5 text-left">
+                {/* Sisi Teks (42% Lebar) dengan margin mt-80 sesuai permintaan */}
+                <div className="w-full md:w-[42%] space-y-5 text-left md:mt-80">
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-slate-900 text-white border border-slate-900">
+                    <span className="text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-slate-950 text-white border border-slate-950">
                       {item.badge}
                     </span>
-                    <span className="font-mono text-xl font-bold text-slate-400">
+                    <span className="font-mono text-2xl font-bold text-slate-400">
                       0{item.id}
                     </span>
                   </div>
 
-                  <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 leading-tight">
+                  <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-950 leading-tight font-serif">
                     {item.title}
                   </h3>
 
-                  <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
+                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
                     {item.description}
                   </p>
 
-                  <ul className="space-y-2.5 pt-2">
+                  <ul className="space-y-3 pt-1">
                     {item.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 font-medium">
-                        <span className="text-lime-600 font-bold">✓</span>
+                      <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-800 font-semibold">
+                        <span className="text-lime-600 font-black">✓</span>
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   <div className="pt-4">
-                    <a 
-                      href="#daftar" 
-                      className="inline-flex items-center gap-2 text-xs font-bold px-6 py-3 rounded-xl bg-slate-950 hover:bg-lime-500 hover:text-slate-950 text-white transition-all duration-300 shadow-md"
+                    <button
+                      onClick={() => handleNavigate(item.id)} 
+                      className="inline-flex items-center gap-3 text-xs font-black uppercase tracking-wider px-7 py-4 rounded-2xl bg-slate-950 hover:bg-lime-500 hover:text-slate-950 text-white transition-all duration-300 shadow-xl cursor-pointer"
                     >
                       <span>Pelajari Modul Ini</span>
-                      <span>➔</span>
-                    </a>
+                      <span className="text-sm">➔</span>
+                    </button>
                   </div>
                 </div>
 
