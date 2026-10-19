@@ -11,7 +11,7 @@ export const ProgramSection: React.FC = () => {
   };
 
   return (
-    <section id="program" className="w-full bg-transparent text-slate-900 py-70 pb-28 px-4 sm:px-8 lg:px-16 border-b border-black/10">
+    <section  className="w-full bg-transparent text-slate-900 py-70 pb-28 px-4 sm:px-8 lg:px-16 border-b border-black/10">
       <div className="max-w-7xl mx-auto space-y-24 sm:space-y-32">
         
         {/* Header Seksi */}
@@ -28,7 +28,7 @@ export const ProgramSection: React.FC = () => {
         </div>
 
         {/* Baris Zig-Zag Berurutan Menurun */}
-        <div className="space-y-20 sm:space-y-28">
+        <div id="program" className="space-y-20 sm:space-y-28">
           {programModules.map((item, index) => {
             const isEven = index % 2 === 0;
 

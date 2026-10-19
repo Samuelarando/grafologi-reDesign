@@ -2,6 +2,8 @@ import React from 'react';
 import { useGraphologyModules } from '../Hooks/useGraphologyModules';
 import { HeroCard } from '../Components/HeroCard';
 import {ProgramSection} from '../Components/Program';
+import {CareerRoadmapSection} from '../Components/CareerRoadmapSection';
+import {QuoteSection} from '../Components/QuoteSection';     
 
 const Pages: React.FC = () => {
   const { modules, activeTab, nextModule } = useGraphologyModules();
@@ -33,8 +35,9 @@ const Pages: React.FC = () => {
       </div>
       {/* HEERO SECTION. END */}
 
-
+    <QuoteSection />
       <ProgramSection />
+      <CareerRoadmapSection />
     </main>
   );
 };

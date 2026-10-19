@@ -60,13 +60,6 @@ export const StackedCards: React.FC<StackedCardsProps> = ({ modules, activeTab, 
           );
         })}
       </div>
-
-      {/* Tombol/Petunjuk di Bawah Kartu */}
-      <div className="text-center mt-7">
-        <span className="inline-block text-[11px] text-slate-300 font-mono bg-slate-900/90 px-4 py-1.5 rounded-full border border-white/15 group-hover:text-lime-400 group-hover:border-lime-400/30 transition-all shadow-xl">
-          Klik kartu untuk putar modul ➔
-        </span>
-      </div>
     </div>
   );
 };
