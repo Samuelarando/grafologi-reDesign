@@ -35,9 +35,10 @@ const Pages: React.FC = () => {
       </div>
       {/* HEERO SECTION. END */}
 
-    <QuoteSection />
+
       <ProgramSection />
       <CareerRoadmapSection />
+       <QuoteSection />
     </main>
   );
 };
