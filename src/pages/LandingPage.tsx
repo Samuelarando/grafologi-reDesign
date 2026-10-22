@@ -5,6 +5,7 @@ import {ProgramSection} from '../Components/Program';
 import {CareerRoadmapSection} from '../Components/CareerRoadmapSection';
 import {QuoteSection} from '../Components/QuoteSection';     
 import { Navbar } from '../Components/Navbar';
+import {InstructorSection} from '../Components/InstructorSection'
 
 const Pages: React.FC = () => {
   const { modules, activeTab, nextModule } = useGraphologyModules();
@@ -42,6 +43,7 @@ const Pages: React.FC = () => {
       <ProgramSection />
       <CareerRoadmapSection />
        <QuoteSection />
+       <InstructorSection />
     </main>
   );
 };

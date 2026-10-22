@@ -46,7 +46,7 @@ const roadmapSteps: RoadmapStep[] = [
 
 export const CareerRoadmapSection: React.FC = () => {
   return (
-    <section className="py-24 px-4 sm:px-8 lg:px-16 bg-slate-50 text-slate-900 font-sans border-t border-slate-200/80">
+    <section id='Roudmap' className="py-24 px-4 sm:px-8 lg:px-16 bg-slate-50 text-slate-900 font-sans border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto space-y-16 sm:space-y-20">
         
         {/* Header Section Editorial Rata Kiri */}
