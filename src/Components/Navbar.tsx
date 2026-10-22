@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide text-slate-200">
           <a href="#program" className="hover:text-white transition-colors duration-200">Program</a>
           <a href="#Roudmap" className="hover:text-white transition-colors duration-200">Roudmap</a>
-          <a href="#sertifikasi" className="hover:text-white transition-colors duration-200">Sertifikasi</a>
+          <a href="#Instruktur" className="hover:text-white transition-colors duration-200">Instruktur</a>
           <a href="#faq" className="hover:text-white transition-colors duration-200">FAQ</a>
         </div>
 

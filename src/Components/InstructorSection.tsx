@@ -3,7 +3,7 @@ import { instructorsData } from './data/instructorsData';
 
 export const InstructorSection: React.FC = () => {
   return (
-    <section id="instruktur" className="py-24 px-4 sm:px-8 lg:px-16 bg-slate-50 text-slate-900 font-sans border-t border-slate-200/80">
+    <section id="Instruktur" className="py-24 px-4 sm:px-8 lg:px-16 bg-slate-50 text-slate-900 font-sans border-t border-slate-200/80">
       <div className="max-w-6xl mx-auto space-y-28">
         
         {/* Header Utama Section */}
