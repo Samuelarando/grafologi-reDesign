@@ -15,17 +15,25 @@ export const ProgramSection: React.FC = () => {
       <div className="max-w-7xl mx-auto space-y-24 sm:space-y-32">
         
         {/* Header Seksi */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <p className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-slate-700 font-serif">
-            ✦ Kurikulum Eksklusif Grafologi ✦
-          </p>
-          <h2 className="text-4xl sm:text-6xl font-black text-slate-950 tracking-tight leading-[1.1] font-serif italic">
-            Program Pembelajaran <span className="not-italic underline decoration-lime-500 decoration-wavy decoration-2 underline-offset-8">Komprehensif</span>
-          </h2>
-          <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium max-w-2xl mx-auto pt-2">
-            Dirancang secara sistematis dari tingkat dasar hingga penerapan profesional agar Anda dapat menganalisis karakter tulisan tangan secara akurat dan objektif.
-          </p>
-        </div>
+    {/* Header Editorial Minimalis (Mewah & Dewasa) */}
+{/* Header Editorial High-End (Ukuran Lebih Besar & Megah) */}
+<div className="text-left space-y-6 max-w-5xl border-b border-slate-200/80 pb-12">
+  <div className="flex items-center gap-4">
+    <span className="w-12 h-[1.5px] bg-slate-950" />
+    <span className="text-xs sm:text-sm font-mono uppercase tracking-[0.35em] font-semibold text-slate-500">
+      Syllabus & Learning Path
+    </span>
+  </div>
+
+  <h2 className="text-5xl sm:text-7xl lg:text-8xl font-serif text-slate-950 tracking-tight leading-[0.98]">
+    Program Pembelajaran <br className="hidden sm:inline" />
+    <span className="font-sans font-light text-slate-400 italic">Komprehensif</span>
+  </h2>
+
+  <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed font-normal max-w-2xl pt-2">
+    Rangkaian kurikulum terstruktur dari metodologi analisis dasar hingga penerapan praktis di tingkat profesional.
+  </p>
+</div>
 
         {/* Baris Zig-Zag Berurutan Menurun */}
         <div id="program" className="space-y-20 sm:space-y-28">

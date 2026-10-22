@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navbar } from './Navbar';
 import { StackedCards } from './ui/StackedCards';
 import { Metrics } from './ui/Metrics';
 import type { GraphologyModule } from '../Hooks/useGraphologyModules';
@@ -23,8 +22,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({ modules, activeTab, onNext }
       }}
     >
       
-      {/* Header Navigasi */}
-      <Navbar />
+     
 
       {/* Inner Content dengan Padding & Spacing Responsif */}
       <div className="max-w-7xl mx-auto px-4 pt-4 sm:px-8 sm:pt-8 lg:px-12 lg:pt-12 pb-6 sm:pb-10 space-y-6 sm:space-y-8">
@@ -34,13 +32,13 @@ export const HeroCard: React.FC<HeroCardProps> = ({ modules, activeTab, onNext }
           
           {/* Judul Utama Responsif */}
           <div className="lg:col-span-7">
-            <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white tracking-tight leading-snug sm:leading-[1.1]">
+            <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black mt-15 text-white tracking-tight leading-snug sm:leading-[1.1]">
               Jadilah Profesional yang Mampu Melihat Lebih Dalam
             </h1>
           </div>
 
           {/* Deskripsi & CTA Responsif */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-5">
+          <div className="lg:col-span-5 space-y-4 sm:space-y-5 mt-20">
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
               Pelajari grafologi secara profesional untuk memahami manusia lebih mendalam dan perkuat profesi Anda dengan sertifikasi internasional Certified Handwriting Analyst (CHA).
             </p>

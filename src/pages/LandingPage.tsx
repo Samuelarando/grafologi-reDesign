@@ -4,15 +4,18 @@ import { HeroCard } from '../Components/HeroCard';
 import {ProgramSection} from '../Components/Program';
 import {CareerRoadmapSection} from '../Components/CareerRoadmapSection';
 import {QuoteSection} from '../Components/QuoteSection';     
+import { Navbar } from '../Components/Navbar';
 
 const Pages: React.FC = () => {
   const { modules, activeTab, nextModule } = useGraphologyModules();
 
   
+// Di file App.tsx atau Home.tsx Anda:
 
   return (
     <main className="relative h-200 w-full">
-  
+         {/* Header Navigasi */}
+      <Navbar />
       {/* HEERO SECTION. START */}
       <div 
         className="absolute w-full inset-0 bg-cover bg-center bg-no-repeat brightness-[0.25] contrast-125 filter"
