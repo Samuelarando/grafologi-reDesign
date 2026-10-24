@@ -1,12 +1,19 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export const QuoteSection: React.FC = () => {
   return (
     <section className="py-16 sm:py-24 lg:py-30 px-4 sm:px-8 lg:px-16 bg-slate-50 font-sans overflow-hidden flex">
       <div className="max-w-6xl mx-auto w-full relative flex flex-col md:flex-row items-center">
         
-        {/* Banner Card Utama - Menggunakan Background Vanila (#F1FECB) */}
-        <div className="relative w-full bg-[#F1FECB] text-slate-900 rounded-3xl p-6 sm:p-10 md:p-12 lg:p-16 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12 border border-lime-200/60">
+        {/* Banner Card Utama - Menggunakan Background Vanila (#F1FECB) dengan Animasi Masuk */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative w-full bg-[#F1FECB] text-slate-900 rounded-3xl p-6 sm:p-10 md:p-12 lg:p-16 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12 border border-lime-200/60"
+        >
           
           {/* Latar Belakang Efek Glow Halus */}
           <div className="absolute -left-20 -top-20 w-64 h-64 bg-yellow-200/40 rounded-full blur-3xl pointer-events-none" />
@@ -35,12 +42,18 @@ export const QuoteSection: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
         
       </div>
       
-      {/* Sisi Kanan: Foto Max Pulver (Posisi dan elemen persis seperti semula, ukuran fleksibel di layar) */}
-      <div className="relative z-10 shrink-0 w-40 sm:w-52 md:w-64 lg:w-72 md:-ml-20 lg:-ml-24 mt-6 md:mt-10 hidden md:block">
+      {/* Sisi Kanan: Foto Max Pulver dengan Animasi Slide in dari Kanan */}
+      <motion.div 
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+        className="relative z-10 shrink-0 w-40 sm:w-52 md:w-64 lg:w-72 md:-ml-20 lg:-ml-24 mt-6 md:mt-10 hidden md:block"
+      >
         <div className="relative rounded-3xl overflow-hidden border-4 border-white/60 shadow-2xl group">
           <img 
             src="/max-pulver.webp" 
@@ -50,7 +63,7 @@ export const QuoteSection: React.FC = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

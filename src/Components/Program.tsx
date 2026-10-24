@@ -1,6 +1,7 @@
 import React from 'react';
 import { programModules } from '../Components/data/ProgramData';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const ProgramSection: React.FC = () => {
 
@@ -11,29 +12,33 @@ export const ProgramSection: React.FC = () => {
   };
 
   return (
-    <section  className="w-full bg-transparent text-slate-900 py-70 pb-28 px-4 sm:px-8 lg:px-16 border-b border-black/10">
+    <section className="w-full bg-transparent text-slate-900 py-70 pb-28 px-4 sm:px-8 lg:px-16 border-b border-black/10">
       <div className="max-w-7xl mx-auto space-y-24 sm:space-y-32">
         
-        {/* Header Seksi */}
-    {/* Header Editorial Minimalis (Mewah & Dewasa) */}
-{/* Header Editorial High-End (Ukuran Lebih Besar & Megah) */}
-<div className="text-left space-y-6 max-w-5xl border-b border-slate-200/80 pb-12">
-  <div className="flex items-center gap-4">
-    <span className="w-12 h-[1.5px] bg-slate-950" />
-    <span className="text-xs sm:text-sm font-mono uppercase tracking-[0.35em] font-semibold text-slate-500">
-      Syllabus & Learning Path
-    </span>
-  </div>
+        {/* Header Editorial High-End (Ukuran Lebih Besar & Megah) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-left space-y-6 max-w-5xl border-b border-slate-200/80 pb-12"
+        >
+          <div className="flex items-center gap-4">
+              <span className="w-12 h-[1.5px] bg-slate-950" />
+              <span className="text-xs sm:text-sm font-mono uppercase tracking-[0.35em] font-semibold text-slate-500">
+                  Syllabus & Learning Path
+              </span>
+          </div>
 
-  <h2 className="text-5xl sm:text-7xl lg:text-8xl font-serif text-slate-950 tracking-tight leading-[0.98]">
-    Program Pembelajaran <br className="hidden sm:inline" />
-    <span className="font-sans font-light text-slate-400 italic">Komprehensif</span>
-  </h2>
+          <h2 className="text-5xl sm:text-7xl lg:text-8xl font-serif text-slate-950 tracking-tight leading-[0.98]">
+                Program Pembelajaran <br className="hidden sm:inline" />
+          <span className="font-sans font-light text-slate-400 italic">Komprehensif</span>
+          </h2>
 
-  <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed font-normal max-w-2xl pt-2">
-    Rangkaian kurikulum terstruktur dari metodologi analisis dasar hingga penerapan praktis di tingkat profesional.
-  </p>
-</div>
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed font-normal max-w-2xl pt-2">
+              Rangkaian kurikulum terstruktur dari metodologi analisis dasar hingga penerapan praktis di tingkat profesional.
+          </p>
+        </motion.div>
 
         {/* Baris Zig-Zag Berurutan Menurun */}
         <div id="program" className="space-y-20 sm:space-y-28">
@@ -46,8 +51,14 @@ export const ProgramSection: React.FC = () => {
                 className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 sm:gap-16`}
               >
                 
-                {/* Sisi Gambar (Lebih Besar: 58% Lebar) */}
-                <div className="w-full md:w-[58%] overflow-hidden rounded-3xl shadow-2xl border border-black/10 bg-white/50 group">
+                {/* Sisi Gambar: Muncul Pertama dari Kiri/Kanan (Lebih Besar: 58% Lebar) */}
+                <motion.div 
+                  initial={{ opacity: 0, x: isEven ? -60 : 60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                  className="w-full md:w-[58%] overflow-hidden rounded-3xl shadow-2xl border border-black/10 bg-white/50 group"
+                >
                   <img 
                     src={item.imageSide} 
                     alt={item.title}
@@ -58,10 +69,16 @@ export const ProgramSection: React.FC = () => {
                       (e.target as HTMLElement).style.display = 'none';
                     }}
                   />
-                </div>
+                </motion.div>
 
-                {/* Sisi Teks (42% Lebar) dengan margin mt-80 sesuai permintaan */}
-                <div className="w-full md:w-[42%] space-y-5 text-left md:mt-80">
+                {/* Sisi Teks: Muncul Kedua (Delay setelah gambar) dari Kiri/Kanan sebaliknya */}
+                <motion.div 
+                  initial={{ opacity: 0, x: isEven ? 60 : -60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.45 }}
+                  className="w-full md:w-[42%] space-y-5 text-left md:mt-80"
+                >
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-slate-950 text-white border border-slate-950">
                       {item.badge}
@@ -89,15 +106,17 @@ export const ProgramSection: React.FC = () => {
                   </ul>
 
                   <div className="pt-4">
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
                       onClick={() => handleNavigate(item.id)} 
                       className="inline-flex items-center gap-3 text-xs font-black uppercase tracking-wider px-7 py-4 rounded-2xl bg-slate-950 hover:bg-lime-500 hover:text-slate-950 text-white transition-all duration-300 shadow-xl cursor-pointer"
                     >
                       <span>Pelajari Modul Ini</span>
                       <span className="text-sm">➔</span>
-                    </button>
+                    </motion.button>
                   </div>
-                </div>
+                </motion.div>
 
               </div>
             );

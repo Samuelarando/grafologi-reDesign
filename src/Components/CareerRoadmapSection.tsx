@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface RoadmapStep {
   level: string;
@@ -46,11 +47,17 @@ const roadmapSteps: RoadmapStep[] = [
 
 export const CareerRoadmapSection: React.FC = () => {
   return (
-    <section id='Roudmap' className="py-24 px-4 sm:px-8 lg:px-16 bg-slate-50 text-slate-900 font-sans border-t border-slate-200/80">
+    <section id="Roudmap" className="py-24 px-4 sm:px-8 lg:px-16 bg-slate-50 text-slate-900 font-sans border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto space-y-16 sm:space-y-20">
         
-        {/* Header Section Editorial Rata Kiri */}
-        <div className="text-left space-y-6 max-w-4xl border-b border-slate-200 pb-10">
+        {/* Header Section Editorial Rata Kiri dengan Animasi */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-left space-y-6 max-w-4xl border-b border-slate-200 pb-10"
+        >
           <div className="flex items-center gap-4">
             <span className="w-12 h-[1.5px] bg-slate-950" />
             <span className="text-xs sm:text-sm font-mono uppercase tracking-[0.35em] font-semibold text-slate-500">
@@ -66,13 +73,17 @@ export const CareerRoadmapSection: React.FC = () => {
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl pt-2">
             Kurikulum terstruktur yang dirancang secara progresif untuk membawa Anda dari tingkat pemula hingga diakui sebagai praktisi bersertifikat.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Grid Step/Kartu Editorial */}
+        {/* Grid Step/Kartu Editorial dengan Animasi Muncul Satu Per Setiap Jeda (Delay 0.25s) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {roadmapSteps.map((step, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: idx * 0.25, ease: "easeOut" }}
               className="bg-white border border-slate-200/90 rounded-2xl p-8 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
               {/* Top Accent Line */}
@@ -125,7 +136,7 @@ export const CareerRoadmapSection: React.FC = () => {
                 </div>
               </div>
 
-            </div>
+            </motion.div>
           ))}
         </div>
 

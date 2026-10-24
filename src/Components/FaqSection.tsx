@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { faqData } from './data/faqData';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const FaqSection: React.FC = () => {
-  // Default ter buka modul pertama
+  // Default terbuka modul pertama
   const [openFaqId, setOpenFaqId] = useState<string>('faq-1');
 
   const toggleFaq = (id: string) => {
@@ -13,8 +14,14 @@ export const FaqSection: React.FC = () => {
     <section id="faq" className="py-24 sm:py-32 px-4 sm:px-8 lg:px-16 bg-slate-50 text-slate-900 font-sans border-t border-slate-200/80">
       <div className="max-w-5xl mx-auto space-y-20">
         
-        {/* Header Editorial Minimalis */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-slate-950 pb-10">
+        {/* Header Editorial Minimalis dengan Animasi */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-slate-950 pb-10"
+        >
           <div className="space-y-4 max-w-xl">
             <span className="text-xs font-mono font-bold uppercase tracking-[0.3em] text-slate-400 block">
               // FAQ & Information
@@ -28,7 +35,7 @@ export const FaqSection: React.FC = () => {
           <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-xs">
             Segala hal mengenai kurikulum, metode fleksibel, dan sertifikasi keahlian CHA™.
           </p>
-        </div>
+        </motion.div>
 
         {/* List Accordion Editorial Minimalis */}
         <div className="divide-y divide-slate-200 border-b border-slate-200">
@@ -37,15 +44,19 @@ export const FaqSection: React.FC = () => {
             const formattedIndex = String(index + 1).padStart(2, '0');
 
             return (
-              <div
+              <motion.div
                 key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                 className="group transition-colors duration-200 py-6 sm:py-8"
               >
                 {/* Header Pertanyaan */}
                 <button
                   onClick={() => toggleFaq(item.id)}
                   type="button"
-                  className="w-full text-left flex items-start justify-between gap-6 focus:outline-none select-none"
+                  className="w-full text-left flex items-start justify-between gap-6 focus:outline-none select-none cursor-pointer"
                 >
                   <div className="flex items-start gap-4 sm:gap-8">
                     {/* Nomor Indeks Monospaced */}
@@ -66,21 +77,37 @@ export const FaqSection: React.FC = () => {
                   </span>
                 </button>
 
-                {/* Jawaban */}
-                {isOpen && (
-                  <div className="pl-8 sm:pl-14 pr-4 sm:pr-12 pt-4 pb-2 animate-in fade-in duration-200">
-                    <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-3xl">
-                      {item.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
+                {/* Jawaban dengan AnimatePresence untuk Transisi Halus */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pl-8 sm:pl-14 pr-4 sm:pr-12 pt-4 pb-2">
+                        <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-3xl">
+                          {item.answer}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>
 
-        {/* Footer Banner Bantuan Minimalis */}
-        <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-slate-200">
+        {/* Footer Banner Bantuan Minimalis dengan Animasi */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-slate-200"
+        >
           <div className="space-y-1">
             <h4 className="text-sm sm:text-base font-bold text-slate-950 tracking-tight">
               Belum menemukan jawaban yang Anda cari?
@@ -90,7 +117,8 @@ export const FaqSection: React.FC = () => {
             </p>
           </div>
 
-          <a
+          <motion.a
+            whileHover={{ x: 4 }}
             href="https://wa.me/"
             target="_blank"
             rel="noopener noreferrer"
@@ -98,8 +126,8 @@ export const FaqSection: React.FC = () => {
           >
             <span>Konsultasi Akademik</span>
             <span>↗</span>
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
       </div>
     </section>

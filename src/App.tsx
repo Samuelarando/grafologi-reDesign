@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Pages from './pages/LandingPage';
 import { ModuleDetailPage } from './pages/ModuleDetailPage';
+import { AuthPage } from './pages/AuthPage';
 
 const App: React.FC = () => {
   return (
@@ -10,7 +11,9 @@ const App: React.FC = () => {
         <Routes>
           {/* Halaman Utama / Landing Page */}
           <Route path="/" element={<Pages />} />
-
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/login" element={<AuthPage defaultMode="login" />} />
+          <Route path="/register" element={<AuthPage defaultMode="register" />} />
           
           <Route path="/modul/:id" element={<ModuleDetailPage />} />
         </Routes>

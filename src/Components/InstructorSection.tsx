@@ -1,5 +1,6 @@
 import React from 'react';
 import { instructorsData } from './data/instructorsData';
+import { motion } from 'framer-motion';
 
 export const InstructorSection: React.FC = () => {
   return (
@@ -7,7 +8,13 @@ export const InstructorSection: React.FC = () => {
       <div className="max-w-6xl mx-auto space-y-28">
         
         {/* Header Utama Section */}
-        <div className="text-left space-y-6 max-w-4xl border-b border-slate-200 pb-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-left space-y-6 max-w-4xl border-b border-slate-200 pb-10"
+        >
           <div className="flex items-center gap-4">
             <span className="w-12 h-[1.5px] bg-slate-950" />
             <span className="text-xs sm:text-sm font-mono uppercase tracking-[0.35em] font-semibold text-slate-500">
@@ -19,7 +26,7 @@ export const InstructorSection: React.FC = () => {
             Belajar Langsung dari <br className="hidden sm:inline" />
             <span className="font-sans font-light text-slate-400 italic">Praktisi Berpengalaman</span>
           </h2>
-        </div>
+        </motion.div>
 
         {/* List Instruktur */}
         <div className="space-y-32">
@@ -29,18 +36,30 @@ export const InstructorSection: React.FC = () => {
               {/* Baris Atas: Gambar Kiri + Paragraf Teks Kanan */}
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                 
-                {/* Gambar 1 (Kiri) */}
-                <div className="md:col-span-5 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                {/* Gambar 1 (Kiri) - Muncul Pertama */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                  className="md:col-span-5 rounded-2xl overflow-hidden border border-slate-200 shadow-md"
+                >
                   <img
                     src={instructor.mainImage}
                     alt={instructor.name}
                     loading="lazy"
                     className="w-full h-72 sm:h-80 md:h-96 object-cover filter grayscale contrast-105 hover:grayscale-0 transition-all duration-700"
                   />
-                </div>
+                </motion.div>
 
-                {/* Paragraf & Info Teks (Kanan) */}
-                <div className="md:col-span-7 m-7 space-y-5 text-left pt-2 pb-12 md:pb-20">
+                {/* Paragraf & Info Teks (Kanan) - Muncul Kedua (Delay 0.35s) */}
+                <motion.div 
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.35 }}
+                  className="md:col-span-7 m-7 space-y-5 text-left pt-2 pb-12 md:pb-20"
+                >
                   <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-blue-600 block">
                     {instructor.category}
                   </span>
@@ -62,19 +81,25 @@ export const InstructorSection: React.FC = () => {
                     {instructor.description}
                   </p>
 
-                </div>
+                </motion.div>
 
               </div>
 
-              {/* Wrapper Bawah: Gambar 2 Mengajar (Dempet & Bertumpuk di Bawah Paragraf) */}
-              <div className="w-full md:w-7/12 ml-auto -mt-6 md:-mt-24 relative z-10 rounded-2xl overflow-hidden border-4 border-slate-50 shadow-xl">
+              {/* Wrapper Bawah: Gambar 2 Mengajar - Muncul Ketiga (Delay 0.6s) */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
+                className="w-full md:w-7/12 ml-auto -mt-6 md:-mt-24 relative z-10 rounded-2xl overflow-hidden border-4 border-slate-50 shadow-xl"
+              >
                 <img
                   src={instructor.teachingImage}
                   alt={`${instructor.name} saat mengajar`}
                   loading="lazy"
                   className="w-full h-56 sm:h-72 lg:h-80 object-cover filter grayscale contrast-105 hover:grayscale-0 transition-all duration-700"
                 />
-              </div>
+              </motion.div>
 
             </div>
           ))}
