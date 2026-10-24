@@ -12,7 +12,7 @@ import { Footer } from '../Components/Footer';
 
 const Pages: React.FC = () => {
   const { modules, activeTab, nextModule } = useGraphologyModules();
-  const [currentPage, setCurrentPage] = useState<'home' | 'auth'>('home');
+  const [ setCurrentPage] = useState<'home' | 'auth'>('home');
 
   return (
     <main className="relative h-200 w-full">
